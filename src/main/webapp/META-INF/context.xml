@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context docBase="jdbc" path="/jdbc" reloadable="true" source="org.eclipse.jst.jee.server:web">
+ <Resource name="dataSource"
+            auth="Container"
+            type="javax.sql.DataSource"
+            maxTotal="100"
+            maxIdle="30"
+            maxWaitMillis="10000"
+            username="admin"
+            password="admin"
+            driverClassName="com.mysql.cj.jdbc.Driver"
+            url="jdbc:mysql://localhost:3306/M2I2?useUnicode=true&amp;characterEncoding=utf-8" />
+
+
+
+</Context>
