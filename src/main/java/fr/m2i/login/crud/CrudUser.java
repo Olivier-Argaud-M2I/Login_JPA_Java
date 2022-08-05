@@ -30,7 +30,11 @@ public class CrudUser {
         em.getTransaction().begin();
         boolean valid = false;
         try{
-            em.persist(user);
+//            em.persist(user);
+            em.createNamedQuery("addUser")
+                    .setParameter(1,user.getUsername())
+                    .setParameter(2,user.getPassword())
+                    .executeUpdate();
             valid = true;
         }
         finally {
@@ -41,7 +45,7 @@ public class CrudUser {
                 em.getTransaction().rollback();
             }
         }
-        em.refresh(user);
+//        em.refresh(user);
         em.close();
         return user;
     }

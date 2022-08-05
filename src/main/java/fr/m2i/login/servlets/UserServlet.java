@@ -36,7 +36,7 @@ public class UserServlet extends HttpServlet {
             switch (type) {
                 case "createNews": {
                     CrudNews crudNews = new CrudNews();
-                    if(request.getParameter("id")!=null){
+                    if(request.getParameter("id")!=null && request.getParameter("id")!=""){
                         crudNews.update(new News(
                                 Integer.valueOf(request.getParameter("id")),
                                 request.getParameter("titre"),
@@ -59,7 +59,7 @@ public class UserServlet extends HttpServlet {
                 }
                 case "createUser": {
                     CrudUser crudUser = new CrudUser();
-                    if(request.getParameter("id")!=null){
+                    if(request.getParameter("id")!=null && request.getParameter("id")!="" ){
                         crudUser.update(
                                 Integer.valueOf(request.getParameter("id")),
                                 request.getParameter("username"),

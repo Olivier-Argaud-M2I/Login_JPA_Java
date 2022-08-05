@@ -14,7 +14,7 @@ import javax.persistence.*;
         @NamedQuery(name="updateUser",query="UPDATE User SET username = :username,password = :password")
 })
 @NamedNativeQueries({
-        @NamedNativeQuery(name="addUser", query="INSERT INTO User(username,password) VALUES(:username,:password)",resultClass = User.class )
+        @NamedNativeQuery(name="addUser", query="INSERT INTO User(username,password) VALUES(?,?)",resultClass = User.class )
 
 })
 public class User {
