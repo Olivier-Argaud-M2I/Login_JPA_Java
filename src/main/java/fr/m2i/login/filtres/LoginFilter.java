@@ -45,7 +45,7 @@ public class LoginFilter implements Filter {
         }
         else{
             HttpServletResponse httpResponse = (HttpServletResponse) response;
-            httpResponse.sendRedirect("/login/home");
+            httpResponse.sendRedirect("/login/login?page=login");
         }
     }
 }

@@ -93,12 +93,15 @@ public class CrudUser {
         em.close();
     }
     
-    public User update(User user){
+    public User update(Integer id,String username,String password){
         EntityManager em = factory.createEntityManager();
+        User user1 = em.find(User.class,id);
+
         em.getTransaction().begin();
         boolean valid = false;
         try{
-            em.merge(user);
+            user1.setUsername(username);
+            user1.setPassword(password);
             valid = true;
         }
         finally {
@@ -109,9 +112,9 @@ public class CrudUser {
                 em.getTransaction().rollback();
             }
         }
-        em.refresh(user);
+
         em.close();
-        return user;
+        return user1;
     }
 
 

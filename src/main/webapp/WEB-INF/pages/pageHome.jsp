@@ -12,27 +12,27 @@
       <title>Home</title>
   </head>
   <body>
-
-  <c:choose>
-      <c:when test="${userIsLogged}">
-          <form action="<c:url value="/home?log=logout"/>" method="post">
-              <input type="submit" value="logout">
-          </form>
-          <form action="<c:url value="/user"/> ">
-              <input type="submit" value="Admin">
-          </form>
-      </c:when>
-      <c:otherwise>
-          <fieldset>
-              <legend>Login</legend>
-              <form action="<c:url value="/user"/>" method="POST">
-                  <input type="text" name="username" placeholder="Username"/>
-                  <input type="text" name="password" placeholder="Password">
-                  <input type="submit" value="valider" >
-              </form>
-          </fieldset>
-      </c:otherwise>
-  </c:choose>
+  <jsp:include page="./fragments/_header.jsp"/>
+<%--  <c:choose>--%>
+<%--      <c:when test="${userIsLogged}">--%>
+<%--          <form action="<c:url value="/home?log=logout"/>" method="post">--%>
+<%--              <input type="submit" value="logout">--%>
+<%--          </form>--%>
+<%--          <form action="<c:url value="/user"/> ">--%>
+<%--              <input type="submit" value="Admin">--%>
+<%--          </form>--%>
+<%--      </c:when>--%>
+<%--      <c:otherwise>--%>
+<%--          <fieldset>--%>
+<%--              <legend>Login</legend>--%>
+<%--              <form action="<c:url value="/user"/>" method="POST">--%>
+<%--                  <input type="text" name="username" placeholder="Username"/>--%>
+<%--                  <input type="text" name="password" placeholder="Password">--%>
+<%--                  <input type="submit" value="valider" >--%>
+<%--              </form>--%>
+<%--          </fieldset>--%>
+<%--      </c:otherwise>--%>
+<%--  </c:choose>--%>
 
 
 

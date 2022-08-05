@@ -84,10 +84,13 @@ public class CrudNews {
 
     public News update(News news){
         EntityManager em = factory.createEntityManager();
+        News news1 = em.find(News.class,news.getId());
+        news1.setTitre(news.getTitre());
+        news1.setText(news.getText());
         em.getTransaction().begin();
         boolean valid = false;
         try{
-            em.merge(news);
+            em.merge(news1);
             valid = true;
         }
         finally {
@@ -98,9 +101,9 @@ public class CrudNews {
                 em.getTransaction().rollback();
             }
         }
-        em.refresh(news);
+        em.refresh(news1);
         em.close();
-        return news;
+        return news1;
     }
 
 

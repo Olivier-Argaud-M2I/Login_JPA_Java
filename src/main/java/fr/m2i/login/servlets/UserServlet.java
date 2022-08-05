@@ -36,7 +36,20 @@ public class UserServlet extends HttpServlet {
             switch (type) {
                 case "createNews": {
                     CrudNews crudNews = new CrudNews();
-                    crudNews.addNews(new News(request.getParameter("titre"), request.getParameter("text")));
+                    if(request.getParameter("id")!=null){
+                        crudNews.update(new News(
+                                Integer.valueOf(request.getParameter("id")),
+                                request.getParameter("titre"),
+                                request.getParameter("text"))
+                        );
+                    }
+                    else{
+                        crudNews.addNews(new News(
+                                request.getParameter("titre"),
+                                request.getParameter("text"))
+                        );
+                    }
+
                     break;
                 }
                 case "deleteNews": {
@@ -46,8 +59,20 @@ public class UserServlet extends HttpServlet {
                 }
                 case "createUser": {
                     CrudUser crudUser = new CrudUser();
-                    crudUser.addUser(new User(request.getParameter("username"), request.getParameter("password")));
-                    break;
+                    if(request.getParameter("id")!=null){
+                        crudUser.update(
+                                Integer.valueOf(request.getParameter("id")),
+                                request.getParameter("username"),
+                                request.getParameter("password")
+                        );
+                    }
+                    else{
+                        crudUser.addUser(new User(
+                                request.getParameter("username"),
+                                request.getParameter("password"))
+                        );
+                    }
+                   break;
                 }
                 case "deleteUser": {
                     CrudUser crudUser = new CrudUser();
